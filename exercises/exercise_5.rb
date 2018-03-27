@@ -17,4 +17,4 @@ puts "Total revenue = #{@allstores.sum(:annual_revenue)}"
 
 puts "Average revenue/store  = #{@allstores.average(:annual_revenue)}"
 
-puts "Number of stores generating more than $1million in sales: #{Store.where(annual_revenue: (1_000_000..Inf)).count}"
+puts "Number of stores generating more than $1million in sales: #{Store.where('annual_revenue >= ?', 1_000_000).count}"
