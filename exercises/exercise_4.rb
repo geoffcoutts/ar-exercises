@@ -36,9 +36,11 @@ store.save
   puts s.annual_revenue
 end
 
-@womens_stores = Store.where(womens_apparel: true, annual_revenue: (0..1_000_000))
+@womens_stores = Store.where(womens_apparel: true)
 
 @womens_stores.each do | s |
-  puts s.name
-  puts s.annual_revenue
+  if s.annual_revenue < 1_000_000
+    puts s.name
+    puts s.annual_revenue
+  end
 end
